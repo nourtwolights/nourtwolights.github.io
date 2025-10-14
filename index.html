@@ -5,85 +5,277 @@
   <meta charset="UTF-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
-  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+  <meta name="description" content="Portfolio of Nourhan Muhammad Ali">
+  <title>Nourhan | Portfolio</title>
 
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
-  <link href="./assets/favicon.ico" rel="icon">
-
-  <title>My Portfolio</title>
-
+  <!-- ملفاتك الأصلية -->
   <link href="./main.3f6952e4.css" rel="stylesheet">
+
+  <!-- ===== Modern Girly Pastel + Glass Skills in HERO ===== -->
+  <style>
+    :root {
+      --accent: #f5a6c7;
+      --accent-2: #d7c3f1;
+      --border: #f1d7e7;
+      --chip-bg: #fff5fb;
+      --grad: linear-gradient(120deg, rgba(245,166,199,.82), rgba(215,195,241,.82));
+      --glass-bg: rgba(255,255,255,.18);
+      --glass-brd: rgba(255,255,255,.35);
+      --glass-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body.minimal {
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Helvetica, Arial, sans-serif;
+      color: #111;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR (شفاف فوق الهيرو) */
+    nav {
+      position: fixed; top: 0; width: 100%;
+      display: flex; justify-content: center; gap: 22px;
+      padding: 12px 20px;
+      backdrop-filter: blur(12px) saturate(180%);
+      background: rgba(255,255,255,0.28);
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      z-index: 1000; transition: .3s;
+    }
+    nav a {
+      color: #111; text-decoration: none; font-weight: 600; font-size: 14.5px;
+      border-radius: 999px; padding: 8px 14px; transition: .2s;
+    }
+    nav a:hover { background: var(--chip-bg); color: var(--accent); transform: translateY(-2px); }
+    @media (max-width: 520px){ nav { flex-wrap: wrap; gap: 10px; } }
+
+    /* HERO + EMBEDDED SKILLS */
+    .hero-full-container{
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; isolation: isolate;
+      background: url('./assets/images/space.jpg') center/cover no-repeat;
+      padding: 90px 0 40px; /* مساحة للناف بار */
+    }
+    .hero-full-container::before{
+      content:""; position:absolute; inset:0; background: var(--grad);
+      z-index:0; opacity:.9;
+    }
+    .hero-inner{
+      position:relative; z-index:1; color:#fff; width:100%; max-width:1100px; padding: 0 18px;
+      display:flex; flex-direction:column; align-items:center; gap: 26px;
+    }
+    h1{
+      font-size: 48px; font-weight: 700; line-height:1.2; letter-spacing:-0.02em; margin:0;
+    }
+    @media (min-width: 768px){ h1{ font-size: 56px; } }
+    #typed{ color:#fff; font-weight:600; }
+    .hero-subtext{ color: rgba(255,255,255,.95); font-size:16px; max-width:760px; margin-top:-6px; }
+
+    .hero-buttons{
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+    }
+    .btn{
+      display:inline-block; padding:10px 18px; border-radius:999px;
+      border:1px solid #fff; background:rgba(255,255,255,.16); color:#fff;
+      text-decoration:none; font-weight:600; transition:.25s;
+    }
+    .btn:hover{ background:#fff; color:var(--accent); transform:translateY(-2px); }
+
+    /* GLASS SKILLS ROW INSIDE HERO */
+    .skills-inline{
+      width:100%; display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px; margin-top: 8px;
+    }
+    @media (min-width: 720px){ .skills-inline{ grid-template-columns: repeat(4, 1fr); } }
+
+    .skill-card{
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-brd);
+      border-radius: 18px; padding: 16px 14px;
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: blur(10px) saturate(160%);
+      -webkit-backdrop-filter: blur(10px) saturate(160%);
+      transform: translateY(16px) scale(.98);
+      opacity: 0; animation: pop .7s ease forwards;
+    }
+    /* stagger */
+    .skill-card:nth-child(1){ animation-delay:.05s; }
+    .skill-card:nth-child(2){ animation-delay:.15s; }
+    .skill-card:nth-child(3){ animation-delay:.25s; }
+    .skill-card:nth-child(4){ animation-delay:.35s; }
+
+    @keyframes pop { to{ opacity:1; transform: translateY(0) scale(1);} }
+
+    .skill-title{
+      color:#fff; font-weight:600; font-size:16px; margin:0 0 10px;
+      text-shadow: 0 1px 0 rgba(0,0,0,.15);
+    }
+    .chip{
+      display:inline-block; padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.28); border:1px solid rgba(255,255,255,.55);
+      color:#fff; font-size:12px; margin:4px 6px 0 0; transition:.25s;
+    }
+    .chip:hover{ background:#fff; color:var(--accent); transform: translateY(-1px); }
+/* === Skill cards effects === */
+/* === Clean, pastel skill cards (no tilt/glow) === */
+.skills-inline { gap: 14px; }
+
+.skill-card{
+  position: relative;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-brd);
+  border-radius: 18px;
+  padding: 16px 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.07);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  transition: border-color .25s ease, box-shadow .25s ease, transform .2s ease, background .25s ease;
+}
+
+/* sheen رقيق جداً من غير بهرجة */
+.skill-card::before{
+  content:"";
+  position:absolute; inset:0; border-radius:18px; pointer-events:none;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,.18), transparent 40%);
+  opacity:.0; transition: opacity .25s ease;
+}
+
+/* hover: ظلّ ناعم + border فاتح + sheen بسيط */
+.skill-card:hover{
+  border-color: rgba(255,255,255,.6);
+  box-shadow: 0 12px 26px rgba(0,0,0,.10);
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.22);
+}
+.skill-card:hover::before{ opacity:.9; }
+
+/* عنوان الكارت أبيض واضح */
+.skill-title{
+  color:#fff; font-weight:600; font-size:16px; margin:0 0 10px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.10);
+}
+
+/* chips بسيطة ومتماسكة */
+.chip{
+  display:inline-block; padding:6px 10px; border-radius:999px;
+  background: rgba(255,255,255,.28);
+  border:1px solid rgba(255,255,255,.55);
+  color:#fff; font-size:12px; margin:4px 6px 0 0;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.skill-card:hover .chip{
+  background:#fff; color:var(--accent);
+  border-color:#fff;
+}
+
+/* حركة دخول خفيفة (نظيفة) */
+.skill-card{ opacity:0; transform: translateY(12px); animation: rise .5s ease forwards; }
+.skill-card:nth-child(1){ animation-delay:.05s; }
+.skill-card:nth-child(2){ animation-delay:.12s; }
+.skill-card:nth-child(3){ animation-delay:.19s; }
+.skill-card:nth-child(4){ animation-delay:.26s; }
+@keyframes rise { to{ opacity:1; transform:none; } }
+
+/* احترام تقليل الحركة */
+@media (prefers-reduced-motion: reduce){
+  .skill-card, .skill-card::before { transition: none !important; animation: none !important; transform: none !important; }
+}
+
+
+    footer{ padding: 50px 0; text-align:center; color:#777; font-size:14px; }
+  </style>
 </head>
 
 <body class="minimal">
-  <div id="site-border-left"></div>
-  <div id="site-border-right"></div>
-  <div id="site-border-top"></div>
-  <div id="site-border-bottom"></div>
-  <!-- Add your content of header -->
-  <header>
-    <nav class="navbar  navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
-          aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav ">
-            <li><a href="./index.html" title="">01 : Home</a></li>
-            <li><a href="./works.html" title="">02 : Projects</a></li>
-            <li><a href="./about.html" title="">03 : About me</a></li>
+  <!-- Navbar -->
+  <!-- <nav>
+    <a href="#hero">Home</a>
+    <a href="./works.html">Works</a>
+        <a href="./contact.html">Contact</a>
+    <a href="./about.html">About</a>
+  </nav> -->
 
-
-          </ul>
-
-
-        </div>
+  <!-- HERO with embedded SKILLS -->
+  <div class="hero-full-container" id="hero">
+    <div class="hero-inner">
+      <div class="text-content">
+        <h1>
+          Hello, World!<br>
+          <span id="typed-strings">
+            <span>I'm Nourhan&nbsp;Muhammad&nbsp;Ali</span>
+            <span>Software Engineer</span>
+            <span>Full-Stack Developer (.NET, Angular, Azure)</span>
+          </span>
+          <span id="typed"></span>
+        </h1>
+        <p class="hero-subtext">
+         I turn complex business workflows into clean, scalable digital solutions.
+        </p>
       </div>
-    </nav>
-  </header>
-  <!-- Add your site or app content here -->
-  <div class="hero-full-container background-image-container white-text-container"
-    style="background-image: url('./assets/images/space.jpg')">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="hero-full-wrapper">
-            <div class="text-content">
-                <h1>
-                    Hello, World!<br />
-                    <span id="typed-strings">
-                        <span>I'm Nourhan<br /> Mohamed Ali</span>
-                        <span>Software <br /> Engineer</span>
-                        <span>Working as Full <br /> stack devoloper</span>
-                    </span>
-                    <span id="typed"></span>
-                </h1>
-            </div>
-          </div>
+
+      <div class="hero-buttons">
+        <a href="./works.html" class="btn">View Projects</a>
+        <a href="./about.html" class="btn">About Me</a>
+        <a href="./contact.html" class="btn">Contact</a>
+        <!-- <a href="./nontech.html" class="btn">Moments & Mind</a> -->
+      </div>
+
+      <!-- Inline Skills (Glass Cards) -->
+      <div class="skills-inline">
+        <div class="skill-card">
+          <p class="skill-title">Core &amp; Backend</p>
+          <span class="chip">.NET Core</span>
+          <span class="chip">C#</span>
+          <span class="chip">REST APIs</span>
+            <span class="chip">Java</span>
+          <!-- <span class="chip">Microservices</span> -->
+        </div>
+
+        <div class="skill-card">
+          <p class="skill-title">Frontend</p>
+          <span class="chip">Angular</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">HTML/CSS</span>
+        </div>
+
+        <div class="skill-card">
+          <p class="skill-title">Cloud &amp; DevOps</p>
+          <span class="chip">Azure</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Kubernetes</span>
+          <span class="chip">CI/CD</span>
+        </div>
+
+        <div class="skill-card">
+          <p class="skill-title">ERP &amp; Integrations</p>
+          <span class="chip">SAP B1 SDK</span>
+          <span class="chip">SAP CCO</span>
+          <span class="chip">NetSuite</span>
+          <span class="chip">Web API</span>
         </div>
       </div>
     </div>
   </div>
 
+  <footer>
+   Made with ♥️ By Noor
+  </footer>
+
+  <!-- سكريبتاتك الأصلية -->
+  <script src="./main.70a66962.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
-      type();
+    document.addEventListener("DOMContentLoaded", function(){
+      type();            // من سكريبتك الأصلي
       movingBackgroundImage();
+      // لا حاجة لأي scroll code؛ الكروت بتظهر تلقائيًا (CSS animation)
     });
   </script>
-
-
-  <script type="text/javascript" src="./main.70a66962.js"></script>
 </body>
-
 </html>

@@ -5,128 +5,253 @@
   <meta charset="UTF-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
-  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+  <meta name="description" content="About Nourhan Muhammad Ali">
+  <title>About — Nourhan</title>
 
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
-  <link href="./assets/favicon.ico" rel="icon">
-
-  <title>About me</title>
-
+  <!-- ملف القالب الأصلي -->
   <link href="./main.3f6952e4.css" rel="stylesheet">
+
+  <!-- ===== Pastel Modern Overrides (متناسقة مع index & works) ===== -->
+  <style>
+    :root{
+      --accent:#f5a6c7;
+      --accent-2:#d7c3f1;
+      --accent-3:#bde7df;
+      --border:#f1d7e7;
+      --chip-bg:#fff5fb;
+      --text:#0f172a;
+      --muted:#6b7280;
+      --grad: linear-gradient(120deg, rgba(245,166,199,.85), rgba(215,195,241,.85));
+      --glass-bg: rgba(255,255,255,.18);
+      --glass-brd: rgba(255,255,255,.35);
+      --glass-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    body{
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;
+      color:var(--text); background:#fff; overflow-x:hidden;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* NAV الشفاف (نفس روح الصفحات التانية) */
+    nav.site-nav{
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      display:flex; justify-content:center; gap:22px; padding:12px 20px;
+      backdrop-filter: blur(12px) saturate(180%);
+      background:rgba(255,255,255,0.28);
+      border-bottom:1px solid rgba(255,255,255,0.25);
+      transition:.3s ease;
+    }
+    nav.site-nav a{
+      color:#111; text-decoration:none; font-weight:600; font-size:14.5px;
+      border-radius:999px; padding:8px 14px; transition:.2s ease;
+    }
+    nav.site-nav a:hover{ background:var(--chip-bg); color:var(--accent); transform:translateY(-2px); }
+    @media (max-width:520px){ nav.site-nav{ flex-wrap:wrap; gap:10px; } }
+
+    /* HERO */
+    .about-hero{
+      margin-top:56px; /* مساحة للناف */
+      background: var(--grad); color:#fff; text-align:center;
+      padding:72px 20px 64px;
+    }
+    .about-hero h1{
+      margin:0 0 8px; font-weight:700; letter-spacing:-0.02em; font-size:40px;
+    }
+    .about-hero p{ margin:0; opacity:.95; }
+
+    /* CONTAINER عام */
+    .section{ padding:64px 0; }
+    .muted{ color:var(--muted); }
+    .grid{
+      display:grid; gap:22px;
+      grid-template-columns: repeat(12, minmax(0,1fr));
+    }
+    .col-7{ grid-column: span 7 / span 7; }
+    .col-5{ grid-column: span 5 / span 5; }
+    @media (max-width: 960px){
+      .grid{ grid-template-columns: 1fr; }
+      .col-7, .col-5{ grid-column: 1 / -1; }
+    }
+
+    /* كارت زجاجي */
+    .glass{
+      background:var(--glass-bg); border:1px solid var(--glass-brd);
+      border-radius:18px; padding:22px; box-shadow:var(--glass-shadow);
+      backdrop-filter: blur(10px) saturate(160%);
+      -webkit-backdrop-filter: blur(10px) saturate(160%);
+    }
+
+    /* كروت بيضاء */
+    .card{
+      background:#fff; border:1px solid var(--border); border-radius:18px; padding:22px;
+      box-shadow:0 6px 14px rgba(0,0,0,.05);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover{ transform:translateY(-4px); box-shadow:0 16px 30px rgba(0,0,0,.08); }
+
+    /* عناوين */
+    .section h2{
+      margin:0 0 14px; font-weight:700; letter-spacing:-0.02em; font-size:28px; color:#111; position:relative; display:inline-block;
+    }
+    .section h2::after{
+      content:""; position:absolute; left:0; bottom:-6px; width:42%; height:5px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius:999px;
+    }
+    h3{ margin:0 0 10px; font-size:18px; color:var(--accent-2); }
+
+    .about-img{
+      width:100%; height:100%; min-height:260px;
+      border-radius:18px; object-fit:cover; display:block;
+      border:1px solid var(--border);
+      box-shadow:0 10px 28px rgba(0,0,0,.08);
+    }
+
+    /* Chips */
+    .chips{ margin-top:6px; }
+    .chip{
+      display:inline-block; padding:6px 10px; border-radius:999px;
+      background:var(--chip-bg); border:1px solid var(--border);
+      color:#374151; font-size:12px; margin:4px 6px 0 0;
+      transition:background .25s ease, transform .25s ease;
+    }
+    .chip:hover{ background:var(--accent); color:#fff; transform:translateY(-1px); }
+
+    /* أزرار */
+    .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    .btn{
+      display:inline-block; padding:10px 16px; border-radius:999px;
+      border:1px solid var(--border); background:#fff; color:#111; text-decoration:none; font-weight:600; font-size:13px;
+      transition:.25s ease;
+    }
+    .btn:hover{ background:var(--chip-bg); transform:translateY(-2px); }
+    .btn.primary{ background:#111; color:#fff; border-color:#111; }
+    .btn.primary:hover{ opacity:.95; }
+
+    /* أنيميشن دخول ناعم */
+    .fade-up{ opacity:0; transform: translateY(20px); animation: up .6s ease .1s forwards; }
+    .fade-up.del2{ animation-delay:.2s; } .fade-up.del3{ animation-delay:.3s; }
+    @keyframes up{ to{ opacity:1; transform:none; } }
+
+    footer{ padding:50px 0; text-align:center; color:#777; font-size:14px; }
+    .white-text-container, .white-text-container * { color: var(--text) !important; }
+
+  </style>
 </head>
 
-<body class="">
-    <div id="site-border-left"></div>
-    <div id="site-border-right"></div>
-    <div id="site-border-top"></div>
-    <div id="site-border-bottom"></div>
-    <!-- Add your content of header -->
-    <header>
-        <nav class="navbar  navbar-fixed-top navbar-default">
-            <div class="container">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
-                        aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+<body>
 
-                <div class="collapse navbar-collapse" id="navbar-collapse">
-                    <ul class="nav navbar-nav ">
-                        <li><a href="./index.html" title="">01 : Home</a></li>
-                        <li><a href="./works.html" title="">02 : Projects</a></li>
-                        <li><a href="./about.html" title="">03 : About me</a></li>
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a href="./index.html">Home</a>
+    <a href="./works.html">Projects</a>
+    <a href="contact.html">Contact</a>
+    <a href="./about.html">About</a>
+  </nav>
 
-                    </ul>
+  <!-- HERO -->
+  <header class="about-hero">
+    <h1>About Me</h1>
+    <p>Full-stack engineer who blends clean UX with scalable backends & enterprise integrations.</p>
+  </header>
 
+  <!-- ===== BIO / INFO ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="grid">
 
-                </div>
+        <!-- النص + بايو (زجاجي) -->
+        <div class="col-7">
+          <div class="glass fade-up">
+            <h2>Bio</h2>
+            <p class="muted" style="line-height:1.7">
+              Hello, World! 👋 I'm <strong>Nourhan</strong>, a full-stack engineer with a B.Sc. in Computer Engineering and 8+ years building
+              Windows & Web applications across HR, ERP, retail, and government. I believe <em>simplicity</em> and <em>consistency</em> beat
+              unnecessary complexity — and choosing the right tools is as important as solving the problem. Code is a message not only to the
+              machine, but also to teammates and your future self.
+            </p>
+            <p class="muted" style="line-height:1.7">
+        Recently, I’ve been focusing on cloud technologies, designing and deploying scalable .NET and Angular applications on Azure, with a strong interest in cloud architecture, DevOps practices, and system reliability.
+
+            </p>
+
+            <div class="actions">
+              <a class="btn primary" href="./works.html">View Projects</a>
+              <a class="btn" href="contact.html">Contact</a>
             </div>
-        </nav>
-    </header>
-
-    <div class="section-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="section-container-spacer text-center">
-                        <h1 class="h2">03 : About me</h1>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-6">
-                                    <h3>Technical Info</h3>
-                                    <p>
-                                        Hello, World! 👋 I'm Nourhan, a full-stack engineer with a bachelor’s degree in Computer Engineering, I have eight years of experience with software development, which includes Windows and Web applications.
-                                        For software development, I believe that simplicity and consistency is better than complexity and choosing the right tools is just as important as solving the problem. Since it’s not just about communicating with the machine, but also communicating with others or even your future self-reading the code.
-                                        I am passionate about improving my skills and learning new technologies.
-                                    </p>
-                                    <!--<h3>Skills</h3>
-                                    <p>
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        <h3>Maecenas luctus at sem quis varius</h3>
-                                    <p>
-                                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                                        Phasellus iaculis magna sagittis elit sagittis, at hendrerit lorem venenatis. Morbi accumsan iaculis
-                                        blandit. Cras ultrices hendrerit nisl.
-                                    </p>-->
-                                </div>
-                                <div class="col-xs-12 col-md-6">
-                                    <img src="./assets/images/space1.jpg" class="img-responsive" alt="" style="visibility: visible; opacity: 1 !important; transition: opacity 0.6s ease-in 0.5s !important;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+          </div>
         </div>
+
+        <!-- صورة + Quick Info -->
+        <div class="col-5">
+          <img src="./assets/images/space1.jpg" class="about-img fade-up del2" alt="Nourhan cover" />
+
+          <div class="card fade-up del3" style="margin-top:16px;">
+            <h3>Quick Info</h3>
+            <div class="chips">
+              <span class="chip">Cairo, Egypt</span>
+              <span class="chip">8+ yrs experience</span>
+              <span class="chip">Full-Stack (.NET / Angular)</span>
+              <span class="chip">Azure Cloud</span>
+              <span class="chip">SAP · NetSuite</span>
+              <span class="chip">Mentoring & Reviews</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-
-    <footer class="footer-container text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <p>Made with ♥️ By Noor</p>
-                </div>
+  <!-- ===== WHAT I CARE ABOUT ===== -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="card fade-up">
+        <h2>What I care about</h2>
+        <div class="grid" style="grid-template-columns:repeat(12, minmax(0,1fr)); gap:16px;">
+          <div class="col-7" style="grid-column: span 7 / span 7;">
+            <ul class="muted" style="margin:0; padding-left:18px; line-height:1.8">
+              <li>Readable, maintainable code with meaningful boundaries and tests.</li>
+              <li>Designing for performance and reliability from day one.</li>
+              <li>DX that makes contributors faster: docs, scripts, CI/CD.</li>
+              <li>UX that reduces friction and celebrates clarity.</li>
+              <li>Integrations that are robust, observable, and secure.</li>
+            </ul>
+          </div>
+          <div class="col-5" style="grid-column: span 5 / span 5;">
+            <h3 style="margin-top:0">Tech Snapshot</h3>
+            <div class="chips">
+              <span class="chip">.NET</span>
+              <span class="chip">C#</span>
+              <span class="chip">Angular</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">Azure</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Kubernetes</span>
+              <span class="chip">SQL Server</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">SAP B1</span>
+              <span class="chip">SAP CCO</span>
+              <span class="chip">NetSuite</span>
             </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
+  <footer>
+    Made with ♥️ By Noor
+  </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function (event) {
-            navActivePage();
-        });
-    </script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID
-
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-      ga('create', 'UA-XXXXX-X', 'auto');
-      ga('send', 'pageview');
-    </script>
-
-    -->
-    <script type="text/javascript" src="./main.70a66962.js"></script>
+  <!-- سكريبت القالب (لو محتاجة navActivePage) -->
+  <script src="./main.70a66962.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      try { navActivePage && navActivePage(); } catch(e) {}
+    });
+  </script>
 </body>
-
 </html>

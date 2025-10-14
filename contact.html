@@ -1,153 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
-  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Nourhan</title>
+  <link href="./main.3f6952e4.css" rel="stylesheet" />
 
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no">
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
-  <link href="./assets/favicon.ico" rel="icon">
+  <style>
+    :root{
+      --accent:#f5a6c7;
+      --accent-2:#d7c3f1;
+      --border:#f1d7e7;
+      --chip-bg:#fff5fb;
+      --text:#0f172a;
+      --muted:#6b7280;
+    }
+    body{ font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif; color:var(--text); background:#fff; }
 
-  <title>Title page</title>  
+    /* Nav (نفس بقية الصفحات) */
+    nav.site-nav{
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      display:flex; justify-content:center; gap:22px; padding:12px 20px;
+      background:rgba(255,255,255,.8); backdrop-filter: blur(8px) saturate(160%);
+      border-bottom:1px solid rgba(0,0,0,.05);
+    }
+    nav.site-nav a{
+      color:#111; text-decoration:none; font-weight:600; font-size:14.5px;
+      border-radius:999px; padding:8px 14px; transition:.2s;
+    }
+    nav.site-nav a:hover{ background:var(--chip-bg); color:var(--accent); transform:translateY(-2px); }
+    @media (max-width:520px){ nav.site-nav{ flex-wrap:wrap; gap:10px; } }
 
-<link href="./main.3f6952e4.css" rel="stylesheet"></head>
+    /* Title */
+    .contact-wrap{ padding:96px 16px 70px; max-width:1000px; margin:0 auto; }
+    .contact-title{
+      margin:0 0 18px; font-weight:700; letter-spacing:-.02em; font-size:36px; color:#111; text-align:center; position:relative; display:inline-block;
+      left:50%; transform:translateX(-50%);
+    }
+    .contact-title::after{
+      content:""; position:absolute; left:0; bottom:-8px; width:100%; height:5px; border-radius:10px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    }
+    .contact-sub{ text-align:center; color:var(--muted); margin:10px 0 26px; }
 
-<body class="">
-<div id="site-border-left"></div>
-<div id="site-border-right"></div>
-<div id="site-border-top"></div>
-<div id="site-border-bottom"></div>
- <!-- Add your content of header -->
-<header>
-  <nav class="navbar  navbar-fixed-top navbar-default">
-    <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+    /* Contact strip */
+    .contact-items{
+      display:grid; gap:14px; grid-template-columns: repeat(4, minmax(200px,1fr));
+    }
+    @media (max-width:900px){ .contact-items{ grid-template-columns: repeat(2,1fr); } }
+    @media (max-width:520px){ .contact-items{ grid-template-columns: 1fr; } }
 
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav ">
-          <li><a href="./index.html" title="">01 : Home</a></li>
-          <li><a href="./works.html" title="">02 : Works</a></li>
-          <li><a href="./about.html" title="">03 : About me</a></li>
-          <li><a href="./contact.html" title="">04 : Contact</a></li>
-          <li><a href="./components.html" title="">05 : Components</a></li>
-        </ul>
+    .contact-item{
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      background:#fff; color:#111; text-decoration:none;
+      border:1px solid var(--border); border-radius:14px; padding:14px;
+      transition:.2s ease; box-shadow:0 6px 14px rgba(0,0,0,.04);
+    }
+    .contact-item:hover{ background:var(--chip-bg); border-color:var(--accent); transform:translateY(-2px); box-shadow:0 14px 24px rgba(0,0,0,.06); }
 
+    .icon{
+      width:34px; height:34px; min-width:34px; display:grid; place-items:center;
+      border:1px solid var(--border); border-radius:10px; background:#fff; color:#111;
+    }
+    .label{ font-weight:600; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color: #0f172a !important;}
 
-      </div> 
-    </div>
+    footer{ padding:50px 0; text-align:center; color:#777; font-size:14px; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="site-nav">
+    <a href="./index.html">Home</a>
+    <a href="./works.html">Projects</a>
+        <a href="./contact.html">Contact</a>
+    <a href="./about.html">About</a>
+
   </nav>
-</header>
 
-<div class="section-container">
+  <!-- Contact content -->
+  <main class="contact-wrap">
+    <h1 class="contact-title">Contact</h1>
+    <p class="contact-sub">Get in touch anytime — I’m happy to connect.</p>
+
+    <div class="contact-items">
+      <!-- Location -->
+      <a class="contact-item" href="https://maps.google.com/?q=Cairo,+Egypt" target="_blank" rel="noreferrer" aria-label="Location">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10.5c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10.5" r="3"/></svg>
+        </span>
+        <span class="label">Cairo, Egypt</span>
+      </a>
+
+      <!-- Phone -->
+      <a class="contact-item" href="tel:+201273222281" aria-label="Phone">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.9 19.9 0 0 1-8.67-3.07 19.7 19.7 0 0 1-6-6A19.9 19.9 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.47-1.18a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92z"/></svg>
+        </span>
+        <span class="label">+20 1099965430</span>
+      </a>
+
+      <!-- Email -->
+      <a class="contact-item" href="mailto:nurhannealsaud@gmail.com" aria-label="Email">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
+        </span>
+        <span class="label">nurhannealsaud@gmail.com</span>
+      </a>
+
+      <!-- LinkedIn -->
+      <a class="contact-item" href="https://www.linkedin.com/in/nurhanmuhammed/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.06h.05c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12V23h-4v-6.64c0-1.58-.03-3.62-2.2-3.62-2.2 0-2.53 1.72-2.53 3.5V23h-4V8z"/></svg>
+        </span>
+        <span class="label">/in/nurhanmuhammed</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
     <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="section-container-spacer text-center">
-            <h1 class="h2">03 : Contact me</h1>
-          </div>
-          
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-               <form action="" class="reveal-content">
-                  <div class="row">
-                    <div class="col-md-7">
-                      <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                      </div>
-                      <div class="form-group">
-                        <textarea class="form-control" rows="5" placeholder="Enter your message"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-default btn-lg">Send</button>
-                    </div>
-                    <div class="col-md-5 address-container">
-                      <ul class="list-unstyled">
-                        <li>
-                          <span class="fa-icon">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                          </span>
-                          + 33 9 07 45 12 65
-                        </li>
-                        <li>
-                          <span class="fa-icon">
-                            <i class="fa fa-at" aria-hidden="true"></i>
-                          </span>
-                          e-mail@mail.io
-                        </li>
-                        <li>
-                          <span class="fa-icon">
-                            <i class="fa fa fa-map-marker" aria-hidden="true"></i>
-                          </span>
-                          42 rue Moulbert 75016 Paris
-                        </li>
-                      </ul>
-                      <h3>Follow me on social networks</h3>
-                      <a href="http://www.facebook.com" title="" class="fa-icon">
-                        <i class="fa fa-facebook"></i>
-                      </a>
-                      <a href="http://www.twitter.com" title="" class="fa-icon">
-                        <i class="fa fa-twitter"></i>
-                      </a>
-                      <a href="http://www.linkedin.com" title="" class="fa-icon">
-                        <i class="fa fa-linkedin"></i>
-                      </a>
-
-                    </div>
-                  </div>
-                </form>
-            </div>
-
-          </div>
-         
-       </div>
-      </div>
+      <p style="text-align:center; color:#777"> Made with ♥️ By Noor </p>
     </div>
-  </div>
+  </footer>
 
-
-<footer class="footer-container text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <p>© UNTITLED | Website created with <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/<a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function (event) {
-     navActivePage();
-  });
-</script>
-
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
-
-<script>
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date(); a = s.createElement(o),
-      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-  ga('create', 'UA-XXXXX-X', 'auto');
-  ga('send', 'pageview');
-</script>
-
---> <script type="text/javascript" src="./main.70a66962.js"></script></body>
-
+  <script src="./main.70a66962.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{ try{ navActivePage && navActivePage(); }catch(e){} });</script>
+</body>
 </html>
